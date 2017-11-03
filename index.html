@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+
+    <button id="chocolate-cookie">Chocolate Chip</button>
+    <button id="sugar-cookie">Sugar Cookie</button>
+    <button id="pumpkin">Pumpkin Cookie</button>
+
+    <script src="cookies.js"> </script>
+
+    <script>
+
+
+    // grab the value currently stored in the cookie using get
+    // if the value is undefined
+    // set the value to be 1 and store that in the cookie using set
+    // otherwise if you have any other value
+    // set that value to be +1 and store that in the cookie using set
+
+
+      function updateChocolateChip(){
+        var cookieCount = Cookies.get("chocolateCookie");
+        if (cookieCount === undefined){
+          Cookies.set("chocolateCookie", 1);
+        }else{
+          cookieCount = parseInt(cookieCount);
+          Cookies.set("chocolateCookie", cookieCount + 1);
+        }
+
+        if (cookieCount>20){
+          Cookies.set("chocolateCookie", 0)
+          alert("You have reached your max for this cookie flavor!");
+            //alert comes up on the 20th click!!? how to get it to alert right after the 20th click, so on the 21st click? tried changing the number to be cookiecount>21
+        }
+
+      }
+      document.getElementById("chocolate-cookie").addEventListener("click", updateChocolateChip);
+
+
+
+      function updateSugarCookie(){
+        var cookieCount = Cookies.get("sugarCookie");
+        if (cookieCount === undefined){
+          Cookies.set("sugarCookie", 1);
+        }else{
+          cookieCount = parseInt(cookieCount);
+          Cookies.set("sugarCookie",cookieCount +1);
+        }
+
+        if (cookieCount>20){
+          Cookies.set("sugarCookie", 0)
+          alert("You have reached your max for this cookie flavor!");
+          //alert comes up on the 20th click? how to get it to alert right after the 20th click, so the 21st click? tried changing the number to be cookiecount>21
+        }
+
+      }
+      document.getElementById("sugar-cookie").addEventListener("click",updateSugarCookie);
+
+
+      function updatePumpkin(){
+        var cookieCount= Cookies.get("pumpkin");
+        if (cookieCount === undefined){
+          Cookies.set("pumpkin", 1);
+        }else{
+          cookieCount= parseInt(cookieCount);
+          Cookies.set("pumpkin", cookieCount + 1);
+        }
+
+        if (cookieCount>20){
+          Cookies.set("pumpkin", 0)
+          alert("You have reached your max for this cookie flavor!");
+           //alert comes up on the 20th click? how to get it to alert right after the 20th click, so the 21st click?
+        }
+      }
+
+      document.getElementById("pumpkin").addEventListener("click",updatePumpkin);
+      //understanding cookies example
+      // <!-- <input type="text" id="first-name"> -->
+    //  <button id="submit-button">submit now</button>
+
+      // var firstName=Cookies.get("firstName");
+      // if(firstName !== undefined){
+      //     alert ("Hi" + " " + firstName);
+      // }
+      //
+      //
+      // function setFirstName(){
+      //   var firstName =document.getElementById ("first-name").value;
+      //   Cookies.set("firstName", firstName);
+      // }
+      // document.getElementById("submit-button").addEventListener("click", setFirstName);
+      //on click retrieve
+      // Cookies.get("firstname");
+      //document.getElementById("firstName").addEventListener("click", setFirstName)
+
+
+    </script>
+
+
+
+  </body>
+</html>
